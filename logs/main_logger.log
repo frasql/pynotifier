@@ -1,0 +1,4 @@
+2021-07-27 19:54:21,376 WARNING Unable to create json file: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1' (111)
+2021-07-27 19:54:21,376 INFO Process update ricambi table completed!
+2021-07-27 19:54:21,410 INFO ricambi.json file replaced in ricambi application
+2021-07-27 19:54:21,411 INFO application successfully updated in --> Minute: 27123474.35685041, Seconds: 1627408461.4110248

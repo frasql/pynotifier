@@ -1,0 +1,40 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+downloads/
+var/
+
+# config file
+config.py
+
+# Specific vscode
+.vscode
+.idea
+
+# Unit test / coverage reports
+.cache
+
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+
+# IPython Notebook
+.ipynb_checkpoints
+
+# dotenv
+.env
+
+# virtualenv
+venv/
+ENV/
+

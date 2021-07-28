@@ -1,0 +1,32 @@
+[
+    {
+        "_id": "0f654c70b79d434899d0ab01780722ad",
+        "file": "ricambi_venduti.log",
+        "n_row": 2,
+        "description": "2021-07-27 19:54:21,376 INFO Process update ricambi table completed!\n"
+    },
+    {
+        "_id": "4c0a607e6ba54859a62605e5984125ff",
+        "file": "ricambi_venduti.log",
+        "n_row": 3,
+        "description": "2021-07-27 19:54:21,410 INFO ricambi.json file replaced in ricambi application\n"
+    },
+    {
+        "_id": "c1e500e879424ce6bf3af1c8df4a9a16",
+        "file": "main_logger.log",
+        "n_row": 1,
+        "description": "2021-07-27 19:54:21,376 INFO Process update ricambi table completed!\n"
+    },
+    {
+        "_id": "c875dfe5c4cd4401a126230ec78d08fb",
+        "file": "main_logger.log",
+        "n_row": 2,
+        "description": "2021-07-27 19:54:21,410 INFO ricambi.json file replaced in ricambi application\n"
+    },
+    {
+        "_id": "9f1c770399da46938f508407f6fa5f49",
+        "file": "main_logger.log",
+        "n_row": 3,
+        "description": "2021-07-27 19:54:21,411 INFO application successfully updated in --> Minute: 27123474.35685041, Seconds: 1627408461.4110248\n"
+    }
+]
