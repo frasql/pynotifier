@@ -66,6 +66,12 @@ notifier.send_email_notification("info", html=True)
 
 * Async Pynotifier
 
+### Test
+
+* Run 'test_logs.py' will create a log folder with a log file called test.log
+* Run 'run.py' will create a 'result_observers' folder with json file(s) (named as the event(s) choosen)
+
+
 
 
 

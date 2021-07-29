@@ -1,0 +1,80 @@
+[
+    {
+        "_id": "70bb055dc8044be3a7a25ffc10d42006",
+        "file": "ricambi_venduti.log",
+        "n_row": 0,
+        "description": "2021-07-27 19:54:21,376 WARNING Unable to create json file: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1' (111)"
+    },
+    {
+        "_id": "9d0e61d581f3410e951236393ad3ef79",
+        "file": "ricambi_venduti.log",
+        "n_row": 1,
+        "description": "2021-07-27 19:54:21,376 WARNING Unable to create json file: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1' (111)"
+    },
+    {
+        "_id": "9649876c730d461a801ae0d32ba1a517",
+        "file": "test.log",
+        "n_row": 1,
+        "description": "2021-07-29 16:29:21,841 WARNING Unable to create a user. Erorr: __init__() missing 1 required positional argument: 'passwd'"
+    },
+    {
+        "_id": "cd7fcde6505a463dbc7ebdf412c4c228",
+        "file": "test.log",
+        "n_row": 3,
+        "description": "2021-07-29 16:29:21,841 WARNING Unable to create a user. Erorr: __init__() missing 1 required positional argument: 'passwd'"
+    },
+    {
+        "_id": "1d71ab48d5c84f69ad192334c956bd03",
+        "file": "test.log",
+        "n_row": 5,
+        "description": "2021-07-29 16:29:21,841 WARNING Unable to create a user. Erorr: __init__() missing 1 required positional argument: 'passwd'"
+    },
+    {
+        "_id": "6aa71a7c2f6c4c9cb8d4cfecd00542f3",
+        "file": "test.log",
+        "n_row": 7,
+        "description": "2021-07-29 16:29:21,842 WARNING Unable to create a user. Erorr: __init__() missing 1 required positional argument: 'passwd'"
+    },
+    {
+        "_id": "e8f007c6a970442fa7608e87983a9031",
+        "file": "test.log",
+        "n_row": 9,
+        "description": "2021-07-29 16:29:21,842 WARNING Unable to create a user. Erorr: __init__() missing 1 required positional argument: 'passwd'"
+    },
+    {
+        "_id": "16d7ffbd61ce4551ad9b9edf8eacffba",
+        "file": "test.log",
+        "n_row": 11,
+        "description": "2021-07-29 16:29:21,842 WARNING Unable to create a user. Erorr: __init__() missing 1 required positional argument: 'passwd'"
+    },
+    {
+        "_id": "268d765b0c354e41b225ac4d6e97a2ae",
+        "file": "test.log",
+        "n_row": 13,
+        "description": "2021-07-29 16:29:21,842 WARNING Unable to create a user. Erorr: __init__() missing 1 required positional argument: 'passwd'"
+    },
+    {
+        "_id": "07f96356e3104185b4994507bb13a682",
+        "file": "test.log",
+        "n_row": 15,
+        "description": "2021-07-29 16:29:21,842 WARNING Unable to create a user. Erorr: __init__() missing 1 required positional argument: 'passwd'"
+    },
+    {
+        "_id": "d7cb6a3eaa584b619fd76ec48f4e5207",
+        "file": "test.log",
+        "n_row": 17,
+        "description": "2021-07-29 16:29:21,842 WARNING Unable to create a user. Erorr: __init__() missing 1 required positional argument: 'passwd'"
+    },
+    {
+        "_id": "c2b8ebe0b1ea43f6bc0c0dd6d8f9e963",
+        "file": "test.log",
+        "n_row": 19,
+        "description": "2021-07-29 16:29:21,842 WARNING Unable to create a user. Erorr: __init__() missing 1 required positional argument: 'passwd'"
+    },
+    {
+        "_id": "6266bb7e701d42a3abfc75f7cf47b4d9",
+        "file": "main_logger.log",
+        "n_row": 0,
+        "description": "2021-07-27 19:54:21,376 WARNING Unable to create json file: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1' (111)"
+    }
+]

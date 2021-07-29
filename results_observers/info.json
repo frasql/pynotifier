@@ -1,30 +1,90 @@
 [
     {
-        "_id": "399018a3a79e467785e2846c44e38b55",
+        "_id": "417f8424558e4403ad741a345ad577eb",
         "file": "ricambi_venduti.log",
         "n_row": 2,
         "description": "2021-07-27 19:54:21,376 INFO Process update ricambi table completed!"
     },
     {
-        "_id": "23fb55ce5abf42c1bc4b67b834afd92f",
+        "_id": "b11c4043cf42415ab66ec05e85d12d38",
         "file": "ricambi_venduti.log",
         "n_row": 3,
         "description": "2021-07-27 19:54:21,410 INFO ricambi.json file replaced in ricambi application"
     },
     {
-        "_id": "4620de0c23f24f02a64061aa180ab846",
+        "_id": "e5547490485543efbef49bda3a0c21a4",
+        "file": "test.log",
+        "n_row": 0,
+        "description": "2021-07-29 16:29:21,841 INFO User created successfully"
+    },
+    {
+        "_id": "b2c53a6537c342d8905f82cfa9f337b6",
+        "file": "test.log",
+        "n_row": 2,
+        "description": "2021-07-29 16:29:21,841 INFO User created successfully"
+    },
+    {
+        "_id": "3f103ccd6f9949d7968f45304af0d217",
+        "file": "test.log",
+        "n_row": 4,
+        "description": "2021-07-29 16:29:21,841 INFO User created successfully"
+    },
+    {
+        "_id": "5061755ba4a7456e80cf72cec10c74df",
+        "file": "test.log",
+        "n_row": 6,
+        "description": "2021-07-29 16:29:21,842 INFO User created successfully"
+    },
+    {
+        "_id": "c669a09954714bccbd1def9b47fb03f5",
+        "file": "test.log",
+        "n_row": 8,
+        "description": "2021-07-29 16:29:21,842 INFO User created successfully"
+    },
+    {
+        "_id": "fc4b39a194d24edeab97836ce1079b9c",
+        "file": "test.log",
+        "n_row": 10,
+        "description": "2021-07-29 16:29:21,842 INFO User created successfully"
+    },
+    {
+        "_id": "dd6d9057f3444aef8f021d3948b2b254",
+        "file": "test.log",
+        "n_row": 12,
+        "description": "2021-07-29 16:29:21,842 INFO User created successfully"
+    },
+    {
+        "_id": "7428c6946b1749e598c53ebc8e7500df",
+        "file": "test.log",
+        "n_row": 14,
+        "description": "2021-07-29 16:29:21,842 INFO User created successfully"
+    },
+    {
+        "_id": "f5137a29d2284466ab030d88837872b6",
+        "file": "test.log",
+        "n_row": 16,
+        "description": "2021-07-29 16:29:21,842 INFO User created successfully"
+    },
+    {
+        "_id": "7e49aa74acf74c45bfff18288ff37b11",
+        "file": "test.log",
+        "n_row": 18,
+        "description": "2021-07-29 16:29:21,842 INFO User created successfully"
+    },
+    {
+        "_id": "98f1eb8ce1734a57b62330fc59f99d27",
         "file": "main_logger.log",
         "n_row": 1,
         "description": "2021-07-27 19:54:21,376 INFO Process update ricambi table completed!"
     },
     {
-        "_id": "d07885584b3b4f61b5e86552695f14db",
+        "_id": "fd4608a90db044e7a924d2dff5c531a6",
         "file": "main_logger.log",
         "n_row": 2,
         "description": "2021-07-27 19:54:21,410 INFO ricambi.json file replaced in ricambi application"
     },
     {
-        "_id": "e72312ffb1094c228a33d26c76c00547",
+        "_id": "0093d5b60b804700a4a65ea35970c1db",
         "file": "main_logger.log",
         "n_row": 3,
         "description": "2021-07-27 19:54:21,411 INFO application successfully updated in --> Minute: 27123474.35685041, Seconds: 1627408461.4110248"
