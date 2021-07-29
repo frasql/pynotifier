@@ -7,19 +7,19 @@ import datetime
 datetime_to_search = datetime.datetime(2021,7,27,19,54,21,411)
     
 # create observer objects           
-time = DateTimeObserver("time", "logs", datetime_to_search=datetime_to_search)
+_time = DateTimeObserver("time", "logs", datetime_to_search=datetime_to_search)
 info = TextObserver("info", "logs", word_to_search="INFO", dst="bob@gmail.com")
 
 
-""" Store event in json example """
+""" Store observers in json format  """
 
-# instantiate the Observer to json object
-# call save_json() method and save the events in a folder (results_observers) with filename = observer_name
-store_info = ObserverToJson(info)
-store_info.save_json()
+# store single observer in json
+ObserverToJson.save_json(info)
 
-store_time = ObserverToJson(time)
-store_time.save_json()
+
+# store multiple observer in json
+ObserverToJson.save_multiple_json([_time, info])
+
 
 """ Notification event example  """
 
