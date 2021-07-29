@@ -8,17 +8,17 @@ class Event(object):
         self._id = uuid.uuid4().hex
         self.file = file
         self.n_row = n_row
-        self.description = description
+        self.description = description.strip()
             
         
     def __str__(self) -> str:
-        return f"<Event(file={self.file}, n_row={self.n_row}, event={self.event})>"
+        return f"<Event(file={self.file}, n_row={self.n_row}, description={self.description})>"
     
     def to_dict(self):
         return vars(self)
     
     def to_text(self):
-        text = f"Attenzione, all'interno del file {self.file} alla riga {self.n_row} si è verificato il seguente evento: {self.description}"
+        text = f"Attenzione, all'interno del file {self.file} alla riga {self.n_row} si è verificato il seguente evento: {self.description} \n\n"
         return text
     
     def to_html(self):

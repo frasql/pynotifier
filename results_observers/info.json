@@ -1,32 +1,32 @@
 [
     {
-        "_id": "0f654c70b79d434899d0ab01780722ad",
+        "_id": "c3571f85f02f42c59ae5059d60e80375",
         "file": "ricambi_venduti.log",
         "n_row": 2,
-        "description": "2021-07-27 19:54:21,376 INFO Process update ricambi table completed!\n"
+        "description": "2021-07-27 19:54:21,376 INFO Process update ricambi table completed!"
     },
     {
-        "_id": "4c0a607e6ba54859a62605e5984125ff",
+        "_id": "946d33ea42ff443b9a2013ec64b0e9d5",
         "file": "ricambi_venduti.log",
         "n_row": 3,
-        "description": "2021-07-27 19:54:21,410 INFO ricambi.json file replaced in ricambi application\n"
+        "description": "2021-07-27 19:54:21,410 INFO ricambi.json file replaced in ricambi application"
     },
     {
-        "_id": "c1e500e879424ce6bf3af1c8df4a9a16",
+        "_id": "0df0641689774995b3b4c549e430b32b",
         "file": "main_logger.log",
         "n_row": 1,
-        "description": "2021-07-27 19:54:21,376 INFO Process update ricambi table completed!\n"
+        "description": "2021-07-27 19:54:21,376 INFO Process update ricambi table completed!"
     },
     {
-        "_id": "c875dfe5c4cd4401a126230ec78d08fb",
+        "_id": "70fc53b7eabb4b7c8fb73f276a84db03",
         "file": "main_logger.log",
         "n_row": 2,
-        "description": "2021-07-27 19:54:21,410 INFO ricambi.json file replaced in ricambi application\n"
+        "description": "2021-07-27 19:54:21,410 INFO ricambi.json file replaced in ricambi application"
     },
     {
-        "_id": "9f1c770399da46938f508407f6fa5f49",
+        "_id": "de864fd6d37b499e818413119ed8eda0",
         "file": "main_logger.log",
         "n_row": 3,
-        "description": "2021-07-27 19:54:21,411 INFO application successfully updated in --> Minute: 27123474.35685041, Seconds: 1627408461.4110248\n"
+        "description": "2021-07-27 19:54:21,411 INFO application successfully updated in --> Minute: 27123474.35685041, Seconds: 1627408461.4110248"
     }
 ]

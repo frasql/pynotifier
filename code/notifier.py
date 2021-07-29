@@ -1,5 +1,6 @@
 from typing import List, Any, Tuple
 from .observers import Observer
+from .utils import send_mail
 
 
 class Singleton(type):
@@ -48,23 +49,39 @@ class Notifier(metaclass=Singleton):
         return self.wait_dict[name_event]
     
     # events for an observer
-    def events(self, name_event: str):
+    def obs_events(self, name_event: str):
         obs_events = self._get_events(name_event)
         return obs_events[0]
     
     # destination (owner) of the observer
-    def destination(self, name_event: str):
+    def obs_destination(self, name_event: str):
         obs_events = self._get_events(name_event)
         return obs_events[1]
     
     
-    def send_email_notification(self):
+    def send_email_notification(self, name_event: str, html=False) -> None:
         if len(self.wait_dict) != 0:
-            for name in self.wait_dict:
-                obs_events = self.get_events(name)
-                if obs_events[1] != "missing":
-                    for event in obs_events[0]:
-                        print(event.to_text())
+            destination = self.obs_destination(name_event)
+            if html is True:
+                events = [event.to_html() for event in self.obs_events(name_event)]
+                for event in events:
+                    try:
+                        print(str(event))
+                        # send_mail(text="Aplication Notification", subject="Notification", from_email="sender", to_emails=[destination], html=str(event))
+                    except Exception as e:
+                        raise Exception(f"Errore sending emails: {e}")
+            else:
+                events = [event.to_text() for event in self.obs_events(name_event)]
+                for event in events:
+                    try:
+                        print(event)
+                        # send_mail(text=event, subject="Notification", from_email="sender", to_emails=[destination])
+                    except Exception as e:
+                        raise Exception(f"Errore sending emails: {e}")
+            
+                
+                
+                
                     
     
     

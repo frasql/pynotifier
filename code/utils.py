@@ -22,8 +22,8 @@ def send_mail(text: str ='Email Body', subject: str = 'Hello', from_email: str =
     msg.attach(txt_part)
     
     # attach html
-    if html != None:
-        html_part = MIMEText("<h4>Il Modello 23 è in attesa di approvazione</h4>", 'html')
+    if html is not None:
+        html_part = MIMEText(html, 'html')
         msg.attach(html_part)
     # login to smtp server
     with smtplib.SMTP(host='smtp.domain.com', port=587) as server:

@@ -1,3 +1,30 @@
+ 
+# Pynotifier
+
+## About
+
+
+* Python application that allows to create text / logging observers, store events in json fomat and send email notification in plain text or html
+
+
+## Requirements
+
+* Python 3.3+.
+* The application doesn't need external modules
+
+## Usage
+
+* Create a logger with setup_logger function (logger.py) 
+* An Observer object allows to create multiple events based on a regular expression or a datetime object
+* Store events for each observers in json format with ObserverToJson object
+* Send a notification in plain text or html format with Notifier object
+
+
+### Example (run.py)
+
+* A basic example: 
+
+```
 from code.observers import DateTimeObserver, TextObserver
 from code.notifier import Notifier
 from code.filestorage import ObserverToJson
@@ -21,6 +48,7 @@ store_info.save_json()
 store_time = ObserverToJson(time)
 store_time.save_json()
 
+
 """ Notification event example  """
 
 
@@ -33,3 +61,12 @@ info_destination = notifier.obs_destination("info")
 info_events = notifier.obs_events("info")
 # notify via email
 notifier.send_email_notification("info", html=True)
+```
+
+### Future Implementation
+
+* Async Pynotifier
+
+
+
+
