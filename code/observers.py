@@ -9,16 +9,14 @@ from .utils import convert_datetime, convert_time
     
 class Observer(object):
     """
-    Object that allows user to find regular expressions in multiple files, and store the search result in a json file
+    Generic observer object, each observer inherit from it
     :param name: unique name for each class instance allows to differentiate the observer
     :param log_dir: directory where the files are located
-    :param word_to_search: allows to search a specific word in multiple files
-    :param regex: allows user to write his regular expression. You can modify this property with a Pattern type expression --> self.regex = re.compile(r'your regex')  
-    :param send_notification: allows external object to know if a notification is present
+    :param dst: destination of notifications
     """
     intance_names = set()
     
-    def __init__(self, name: str, log_dir: str) -> None:
+    def __init__(self, name: str, log_dir: str, dst: str = None) -> None:
 
         # only unique instance names are allowed
         if not isinstance(name, str):
@@ -32,6 +30,11 @@ class Observer(object):
         Observer.intance_names.add(name)
         # directory with logs / text
         self.log_dir = log_dir
+        # observer destination name
+        if dst is None:
+            self.dst = "missing"
+        else:
+            self.dst = dst
         
     def search(self):
         raise NotImplementedError
@@ -42,13 +45,14 @@ class TextObserver(Observer):
     Object that allows user to find regular expressions in multiple files, and store the search result in a json file
     :param name: unique name for each class instance allows to differentiate the observer
     :param log_dir: directory where the files are located
+    :param dst: destination of notifications
     :param word_to_search: allows to search a specific word in multiple files
     :param regex: allows user to write his regular expression. You can modify this property with a Pattern type expression --> self.regex = re.compile(r'your regex')  
     :param send_notification: allows external object to know if a notification is present
     """
     
-    def __init__(self, name: str, log_dir: str, word_to_search: str = None, regex: str = None) -> None:
-        super().__init__(name, log_dir)
+    def __init__(self, name: str, log_dir: str, dst: str = None, word_to_search: str = None, regex: str = None) -> None:
+        super().__init__(name, log_dir, dst)
         assert regex is not None or word_to_search is not None
 
         
@@ -66,11 +70,11 @@ class TextObserver(Observer):
         
         
     def __str__(self) -> str:
-        return f"<TextObserver(name={self.name}, log_dir={self.log_dir}, regex={self._re}, events={self.events})"
+        return f"<TextObserver(name={self.name}, log_dir={self.log_dir}, regex={self._re}, events={self.events}, dst={self.dst})"
         
         
     """
-    search selected regex in multiple files and create a deque of events of Event object --> Event(file_contains_event=file, event_n_row=row, event_desrciption=description) 
+    search selected regex in multiple files and create a deque of events of Event object --> Event(file_contains_event=file, event_n_row=row, event_desrciption=description, dst=destination) 
     store the whole row where the event is happened   
     set send_notification to True if the queue events is not empty
     """
@@ -93,8 +97,9 @@ class TextObserver(Observer):
  
     
 class DateTimeObserver(Observer):
-    def __init__(self, name: str, log_dir: str, datetime_to_search: datetime = None) -> None:
-        super().__init__(name, log_dir)
+    def __init__(self, name: str, log_dir: str, dst: str = None, datetime_to_search: datetime = None) -> None:
+        super().__init__(name, log_dir, dst)
+        assert datetime_to_search is not None
         
         if isinstance(datetime_to_search, datetime.datetime):
             self.datetime_to_search = convert_datetime(datetime_to_search)
@@ -111,11 +116,11 @@ class DateTimeObserver(Observer):
         
         
     def __str__(self) -> str:
-        return f"<DatetimeObserver(name={self.name}, log_dir={self.log_dir}, datetime_to_search={self.datetime_to_search}, events={self.events})"
+        return f"<DatetimeObserver(name={self.name}, log_dir={self.log_dir}, datetime_to_search={self.datetime_to_search}, events={self.events}, dst={self.dst})"
         
         
     """
-    search selected regex in multiple files and create a deque of events of Event object --> Event(file_contains_event=file, event_n_row=row, event_desrciption=description) 
+    search selected regex in multiple files and create a deque of events of Event object --> Event(file_contains_event=file, event_n_row=row, event_desrciption=description, dst=destination) 
     store the whole row where the event is happened   
     set send_notification to True if the queue events is not empty
     """
@@ -136,8 +141,9 @@ class DateTimeObserver(Observer):
 
 
 class DateObserver(Observer):
-    def __init__(self, name: str, log_dir: str, date_to_search: datetime) -> None:
-        super().__init__(name, log_dir)
+    def __init__(self, name: str, log_dir: str, dst: str = None, date_to_search: datetime = None) -> None:
+        super().__init__(name, log_dir, dst)
+        assert date_to_search is not None
         
         if isinstance(date_to_search, datetime.date):
             self.date_to_search = date_to_search.strftime("%Y-%m-%d")
@@ -152,11 +158,11 @@ class DateObserver(Observer):
         
         
     def __str__(self) -> str:
-        return f"<DateObserver(name={self.name}, log_dir={self.log_dir}, date_to_search={self.date_to_search}, events={self.events})"
+        return f"<DateObserver(name={self.name}, log_dir={self.log_dir}, date_to_search={self.date_to_search}, events={self.events}, dst={self.dst})"
         
         
     """
-    search selected regex in multiple files and create a deque of events of Event object --> Event(file_contains_event=file, event_n_row=row, event_desrciption=description) 
+    search selected regex in multiple files and create a deque of events of Event object --> Event(file_contains_event=file, event_n_row=row, event_desrciption=description, dst=destination) 
     store the whole row where the event is happened   
     set send_notification to True if the queue events is not empty
     """
@@ -178,8 +184,9 @@ class DateObserver(Observer):
  
  
 class TimeObserver(Observer):
-    def __init__(self, name: str, log_dir: str, time_to_search: datetime) -> None:
-        super().__init__(name, log_dir)
+    def __init__(self, name: str, log_dir: str, dst: str = None,  time_to_search: datetime = None) -> None:
+        super().__init__(name, log_dir, dst)
+        assert time_to_search is not None
         
         
         if isinstance(time_to_search, datetime.time):
@@ -195,11 +202,11 @@ class TimeObserver(Observer):
         
         
     def __str__(self) -> str:
-        return f"<TimeObserver(name={self.name}, log_dir={self.log_dir}, time_to_search={self.time_to_search}, events={self.events})"
+        return f"<TimeObserver(name={self.name}, log_dir={self.log_dir}, time_to_search={self.time_to_search}, events={self.events}, dst={self.dst})"
         
         
     """
-    search selected regex in multiple files and create a deque of events of Event object --> Event(file_contains_event=file, event_n_row=row, event_desrciption=description) 
+    search selected regex in multiple files and create a deque of events of Event object --> Event(file_contains_event=file, event_n_row=row, event_desrciption=description, dst=destination) 
     store the whole row where the event is happened   
     set send_notification to True if the queue events is not empty
     """

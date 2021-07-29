@@ -1,4 +1,4 @@
-from typing import List, Any
+from typing import List, Any, Tuple
 from .observers import Observer
 
 
@@ -39,10 +39,32 @@ class Notifier(metaclass=Singleton):
     def _find_events(self) -> None:
         for observer in self.observers:
             if observer.send_notification is True:
-                self.wait_dict[observer.name] = observer.events
+                self.wait_dict[observer.name] = (observer.events, observer.dst)
             else:
                 print("No events")
                 
     # get each notification stored in wait_dict
-    def get_events(self, name_event: str):
+    def _get_events(self, name_event: str) -> Tuple:
         return self.wait_dict[name_event]
+    
+    # events for an observer
+    def events(self, name_event: str):
+        obs_events = self._get_events(name_event)
+        return obs_events[0]
+    
+    # destination (owner) of the observer
+    def destination(self, name_event: str):
+        obs_events = self._get_events(name_event)
+        return obs_events[1]
+    
+    
+    def send_email_notification(self):
+        if len(self.wait_dict) != 0:
+            for name in self.wait_dict:
+                obs_events = self.get_events(name)
+                if obs_events[1] != "missing":
+                    for event in obs_events[0]:
+                        print(event.to_text())
+                    
+    
+    
