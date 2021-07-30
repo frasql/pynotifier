@@ -42,7 +42,7 @@ class Observer(object):
         
 class TextObserver(Observer):
     """
-    Object that allows user to find regular expressions in multiple files, and store the search result in a json file
+    Object that allows user to find regular expressions in multiple files, and store results in a json file
     :param name: unique name for each class instance allows to differentiate the observer
     :param log_dir: directory where the files are located
     :param dst: destination of notifications
@@ -74,7 +74,7 @@ class TextObserver(Observer):
         
         
     """
-    search selected regex in multiple files and create a deque of events of Event object --> Event(file_contains_event=file, event_n_row=row, event_desrciption=description, dst=destination) 
+    search selected regex in multiple files and create a deque of Event object --> Event(file_contains_events=file, event_n_row=row, event_desrciption=description) 
     store the whole row where the event is happened   
     set send_notification to True if the queue events is not empty
     """
@@ -97,6 +97,11 @@ class TextObserver(Observer):
  
     
 class DateTimeObserver(Observer):
+    """
+    Object that allows user to datetime.datetime string expressions in multiple files, and store results in a json file
+    :param datetime_to_search: datetime.datetime object allows to search datetime string in txt / log files
+    """
+    
     def __init__(self, name: str, log_dir: str, dst: str = None, datetime_to_search: datetime = None) -> None:
         super().__init__(name, log_dir, dst)
         assert datetime_to_search is not None
@@ -120,7 +125,7 @@ class DateTimeObserver(Observer):
         
         
     """
-    search selected regex in multiple files and create a deque of events of Event object --> Event(file_contains_event=file, event_n_row=row, event_desrciption=description, dst=destination) 
+    search selected datetime string in multiple files and create a deque of Event object --> Event(file_contains_events=file, event_n_row=row, event_desrciption=description) 
     store the whole row where the event is happened   
     set send_notification to True if the queue events is not empty
     """
@@ -141,6 +146,10 @@ class DateTimeObserver(Observer):
 
 
 class DateObserver(Observer):
+    """
+    Object that allows user to find datetime.date string in multiple files, and store results in a json file
+    :param date_to_search: datetime.date object allows to search date string in txt / log files
+    """
     def __init__(self, name: str, log_dir: str, dst: str = None, date_to_search: datetime = None) -> None:
         super().__init__(name, log_dir, dst)
         assert date_to_search is not None
@@ -162,7 +171,7 @@ class DateObserver(Observer):
         
         
     """
-    search selected regex in multiple files and create a deque of events of Event object --> Event(file_contains_event=file, event_n_row=row, event_desrciption=description, dst=destination) 
+    search selected date string in multiple files and create a deque of events of Event object --> Event(file_contains_events=file, event_n_row=row, event_desrciption=description, dst=destination) 
     store the whole row where the event is happened   
     set send_notification to True if the queue events is not empty
     """
@@ -184,6 +193,10 @@ class DateObserver(Observer):
  
  
 class TimeObserver(Observer):
+    """
+    Object that allows user to find datetime.date string in multiple files, and store results in a json file 
+    :param time_to_search: datetime.time object allows to search time string in txt / log files
+    """
     def __init__(self, name: str, log_dir: str, dst: str = None,  time_to_search: datetime = None) -> None:
         super().__init__(name, log_dir, dst)
         assert time_to_search is not None
@@ -206,7 +219,7 @@ class TimeObserver(Observer):
         
         
     """
-    search selected regex in multiple files and create a deque of events of Event object --> Event(file_contains_event=file, event_n_row=row, event_desrciption=description, dst=destination) 
+    search selected datetime.time string in multiple files and create a deque of events of Event object --> Event(file_contains_event=file, event_n_row=row, event_desrciption=description, dst=destination) 
     store the whole row where the event is happened   
     set send_notification to True if the queue events is not empty
     """

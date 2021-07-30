@@ -23,10 +23,8 @@ class Event(object):
     
     def to_html(self):
         # create open / closed div
-        builder = HtmlElement.create('div')
+        builder = HtmlElement.create('div style="border: 3px solid lightgrey;"')
         # create html element to chain
-        builder.add_child_chain('h4', "Attenzione, notifica dall'aplicazione").add_child_chain('h5', f"All'interno del file: {self.file} si è verificto il seguente evento: ")
-        builder.add_child_chain('h5', f"Riga numero {self.n_row}, descrizione: {self.description}")
-        return builder
-
-
+        builder.add_child_chain('h4 style="display: flex; justify-content: center; align-items: center"', f"Attenzione! Notifica numero: {self._id}").add_child_chain('h5 style="display: flex; justify-content: center; align-items: center"', f"All'interno del file: {self.file} si è verificto il seguente evento: ")
+        builder.add_child_chain('h5 style="display: flex; justify-content: center; align-items: center"', f"Riga numero {self.n_row}, descrizione: {self.description}")
+        return str(builder)

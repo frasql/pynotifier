@@ -1,6 +1,8 @@
 from typing import List, Any, Tuple
 from .observers import Observer
 from .utils import send_mail
+import webbrowser
+from pathlib import Path
 
 
 class Singleton(type):
@@ -58,7 +60,7 @@ class Notifier(metaclass=Singleton):
         obs_events = self._get_events(name_event)
         return obs_events[1]
     
-    
+    # send notification to email destination in plain text or html
     def send_email_notification(self, name_event: str, html=False) -> None:
         if len(self.wait_dict) != 0:
             destination = self.obs_destination(name_event)
@@ -66,7 +68,7 @@ class Notifier(metaclass=Singleton):
                 events = [event.to_html() for event in self.obs_events(name_event)]
                 for event in events:
                     try:
-                        print(str(event))
+                        print(event)
                         # send_mail(text="Aplication Notification", subject="Notification", from_email="sender", to_emails=[destination], html=str(event))
                     except Exception as e:
                         raise Exception(f"Errore sending emails: {e}")
@@ -78,6 +80,53 @@ class Notifier(metaclass=Singleton):
                         # send_mail(text=event, subject="Notification", from_email="sender", to_emails=[destination])
                     except Exception as e:
                         raise Exception(f"Errore sending emails: {e}")
+                    
+                    
+    # send notification events to an html page (locally or remote)
+    def _events_to_html(self, name_event: str) -> List["str"]:
+        if len(self.wait_dict) != 0:
+            events = [event.to_html() for event in self.obs_events(name_event)]
+        return events
+    
+    
+    def save_to_html(self, name_event: str, html_filename) -> None:
+        BASEDIR = Path(__file__).resolve().parent.parent
+        HTML_PATH = Path.joinpath(BASEDIR, "templates")
+        
+        events = self._events_to_html(name_event)
+        
+        try:
+            f = open(Path.joinpath(HTML_PATH, html_filename),'w+')
+                
+            message = ""
+            for event in events:
+                message += event
+                
+            f.write(message)
+            f.close()
+        except:
+            raise Exception("Unable to write the html file")
+    
+                    
+    # send notification events to an html page (locally or remote)
+    def open_in_html(self, name_event: str, html_filename: str) -> None:
+        BASEDIR = Path(__file__).resolve().parent.parent
+        HTML_PATH = Path.joinpath(BASEDIR, "templates")
+                
+        try:
+            self.save_to_html(name_event, html_filename)
+        except Exception as e:
+            raise Exception(f"{e}")
+ 
+        try:   
+            html_path_render = f"file:///{HTML_PATH}/{html_filename}"
+            #Change path to reflect file location
+            webbrowser.open_new_tab(html_path_render)
+        except:
+            raise Exception("Unable to render html file")
+
+
+        
             
                 
                 
