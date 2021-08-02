@@ -42,7 +42,7 @@ class Observer(object):
         
 class TextObserver(Observer):
     """
-    Object that allows user to find regular expressions in multiple files, and store results in a json file
+    Object that allows user to search regular expressions in multiple files, and store results in a json file
     :param name: unique name for each class instance allows to differentiate the observer
     :param log_dir: directory where the files are located
     :param dst: destination of notifications

@@ -40,5 +40,5 @@ info_destination = notifier.obs_destination("info")
 info_events = notifier.obs_events("info")
 # notify via email
 #notifier.send_email_notification("info", html=True)
-notifier.save_to_html("info", "info.html")
-
+for event in info_events:
+    print(event.to_dict())

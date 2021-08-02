@@ -21,10 +21,19 @@ class Event(object):
         text = f"Attenzione, all'interno del file {self.file} alla riga {self.n_row} si è verificato il seguente evento: {self.description} \n\n"
         return text
     
-    def to_html(self):
+    def to_html(self, div_style: str = None, p_style = None):
         # create open / closed div
-        builder = HtmlElement.create('div style="border: 3px solid lightgrey;"')
+        if div_style is None:
+            builder = HtmlElement.create('div style="display: flex; justify-content: center; align-items: center; border: 1px solid lightgrey;"')
+        else:
+            builder = HtmlElement.create('div style="{}"'.format(div_style))
+            
         # create html element to chain
-        builder.add_child_chain('h4 style="display: flex; justify-content: center; align-items: center"', f"Attenzione! Notifica numero: {self._id}").add_child_chain('h5 style="display: flex; justify-content: center; align-items: center"', f"All'interno del file: {self.file} si è verificto il seguente evento: ")
-        builder.add_child_chain('h5 style="display: flex; justify-content: center; align-items: center"', f"Riga numero {self.n_row}, descrizione: {self.description}")
+        if p_style is None:
+            builder.add_child_chain('h4 style="display: flex; justify-content: center; align-items: center"', f"Attenzione! Notifica numero: {self._id}").add_child_chain('h5 style="display: flex; justify-content: center; align-items: center"', f"All'interno del file: {self.file} si è verificto il seguente evento: ")
+            builder.add_child_chain('h5 style="display: flex; justify-content: center; align-items: center"', f"Riga numero {self.n_row}, descrizione: {self.description}")
+        else:
+            builder.add_child_chain('p style="{}"'.format(p_style), f"Attenzione! Notifica numero: {self._id}").add_child_chain('p style="{}"'.format(p_style), f"All'interno del file: {self.file} si è verificto il seguente evento: ")
+            builder.add_child_chain('p style="{}"'.format(p_style), f"Riga numero {self.n_row}, descrizione: {self.description}")            
+        
         return str(builder)

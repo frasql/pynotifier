@@ -83,17 +83,17 @@ class Notifier(metaclass=Singleton):
                     
                     
     # send notification events to an html page (locally or remote)
-    def _events_to_html(self, name_event: str) -> List["str"]:
+    def _events_to_html(self, name_event: str, div_style: str = None, p_style: str = None) -> List["str"]:
         if len(self.wait_dict) != 0:
-            events = [event.to_html() for event in self.obs_events(name_event)]
+            events = [event.to_html(div_style, p_style) for event in self.obs_events(name_event)]
         return events
     
     
-    def save_to_html(self, name_event: str, html_filename) -> None:
+    def save_to_html(self, name_event: str, html_filename, div_style: str = None, p_style: str = None) -> None:
         BASEDIR = Path(__file__).resolve().parent.parent
         HTML_PATH = Path.joinpath(BASEDIR, "templates")
         
-        events = self._events_to_html(name_event)
+        events = self._events_to_html(name_event, div_style, p_style)
         
         try:
             f = open(Path.joinpath(HTML_PATH, html_filename),'w+')
@@ -109,12 +109,12 @@ class Notifier(metaclass=Singleton):
     
                     
     # send notification events to an html page (locally or remote)
-    def open_in_html(self, name_event: str, html_filename: str) -> None:
+    def open_in_html(self, name_event: str, html_filename: str, div_style: str = None, p_style: str = None) -> None:
         BASEDIR = Path(__file__).resolve().parent.parent
         HTML_PATH = Path.joinpath(BASEDIR, "templates")
                 
         try:
-            self.save_to_html(name_event, html_filename)
+            self.save_to_html(name_event, html_filename, div_style, p_style)
         except Exception as e:
             raise Exception(f"{e}")
  
